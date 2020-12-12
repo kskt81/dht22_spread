@@ -77,7 +77,8 @@ while True:
         worksheet = login_open_sheet(GDOCS_OAUTH_JSON, GDOCS_SPREADSHEET_NAME)
 
     # Attempt to get sensor reading.
-    humidity, temp = Adafruit_DHT.read(DHT_TYPE, DHT_PIN)
+    temp = dhtDevice.temperature
+    humidity = dhtDevice.humidity
 
     # Skip to the next reading if a valid measurement couldn't be taken.
     # This might happen if the CPU is under a lot of load and the sensor
